@@ -1,0 +1,32 @@
+.banner {
+  background-image: url(../../assets/banner.png);
+  height: 400px;
+  width: 100%;
+}
+
+.header {
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  color: #fff;
+  h2 {
+    font-size: 3.75rem;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+  h6 {
+    color: darkgray;
+    text-transform: capitalize;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.57;
+  }
+}
+
+.sub-header {
+  height: 50%;
+  display: flex;
+  align-items: center;
+}
