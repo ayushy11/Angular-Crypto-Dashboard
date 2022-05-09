@@ -13,6 +13,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CoinListComponent } from './coin-list/coin-list.component';
 import { CoinDetailComponent } from './coin-detail/coin-detail.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [AppComponent, CoinListComponent, CoinDetailComponent],
@@ -26,6 +28,8 @@ import { CoinDetailComponent } from './coin-detail/coin-detail.component';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
