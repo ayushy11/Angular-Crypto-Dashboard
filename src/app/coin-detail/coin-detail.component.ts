@@ -4,6 +4,7 @@ import { ApiService } from '../service/api.service';
 
 import { ChartConfiguration, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { CurrencyService } from '../service/currency.service';
 
 @Component({
   selector: 'app-coin-detail',
@@ -50,19 +51,31 @@ export class CoinDetailComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private currencyService: CurrencyService
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((value) => {
       this.coinId = value['id'];
     });
-    this.getCoinData();
-    this.getGraphData();
+    // this.getCoinData();
+    // this.getGraphData();
+    this.currencyService.getCurrency().subscribe((val) => {
+      this.currency = val;
+      this.getGraphData();
+      this.getCoinData();
+    });
   }
 
   getCoinData() {
     this.api.getCurrencyById(this.coinId).subscribe((res) => {
+      if (this.currency === 'USD') {
+        res.market_data.current_price.inr = res.market_data.current_price.usd;
+        res.market_data.market_cap.inr = res.market_data.market_cap.usd;
+      }
+      res.market_data.current_price.inr = res.market_data.current_price.inr;
+      res.market_data.market_cap.inr = res.market_data.market_cap.inr;
       this.coinData = res;
     });
   }

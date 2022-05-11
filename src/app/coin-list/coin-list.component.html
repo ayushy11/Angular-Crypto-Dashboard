@@ -56,7 +56,7 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           Cryptocurrency
         </th>
-        <td mat-cell *matCellDef="let row">
+        <td mat-cell *matCellDef="let row" style="cursor: pointer">
           <img [src]="row.image" width="50" alt="" style="padding: 0 5px" />
           <span class="mx-2">
             {{ row.symbol | uppercase }}
