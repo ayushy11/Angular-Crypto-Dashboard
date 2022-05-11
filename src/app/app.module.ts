@@ -16,6 +16,7 @@ import { CoinDetailComponent } from './coin-detail/coin-detail.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [AppComponent, CoinListComponent, CoinDetailComponent],
@@ -32,6 +33,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
