@@ -59,11 +59,11 @@ export class CoinDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe((value) => {
       this.coinId = value['id'];
     });
-    // this.getCoinData();
-    // this.getGraphData();
+    this.getCoinData();
+    this.getGraphData(this.days);
     this.currencyService.getCurrency().subscribe((val) => {
       this.currency = val;
-      this.getGraphData();
+      this.getGraphData(this.days);
       this.getCoinData();
     });
   }
@@ -80,11 +80,11 @@ export class CoinDetailComponent implements OnInit {
     });
   }
 
-  getGraphData() {
+  getGraphData(days: number) {
+    this.days = days;
     this.api
       .getGraphicalCurrencyData(this.coinId, this.currency, this.days)
       .subscribe((res) => {
-        // console.log(res);
         setTimeout(() => {
           this.myLineChart.chart?.update();
         }, 200);
